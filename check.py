@@ -36,6 +36,8 @@ try:
                 tokens.append(token)
 except:
     print("No input.txt file detected!")
+    input("Press enter to exit")
+    exit()
 tokens = list(dict.fromkeys(tokens))
 
 for token in tokens:
@@ -148,6 +150,8 @@ for token in tokens:
 
 e = datetime.now()
 current_date = e.strftime("%Y-%m-%d-%H-%M-%S")
+if not os.path.exists(f"Results"):
+    os.makedirs(f"Results")
 if not os.path.exists(f"Results/{current_date}/"):
     os.makedirs(f"Results/{current_date}/")
 with open(f"Results/{current_date}/fullyverified.txt", 'w') as f:
